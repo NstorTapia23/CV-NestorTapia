@@ -34,6 +34,7 @@ export const translations = {
       frontend: { es: "Frontend", en: "Frontend" },
       tools: { es: "Herramientas", en: "Tools" },
       databases: { es: "Bases de Datos", en: "Databases" },
+      ai: { es: "Herramientas de IA", en: "AI Tools" },
     },
   },
   experience: {

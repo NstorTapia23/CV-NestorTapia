@@ -26,6 +26,10 @@ const skillCategories = [
     key: "databases" as const,
     skills: ["PostgreSQL", "SQLServer"],
   },
+  {
+    key: "ai" as const,
+    skills: ["Claude Code", "OpenCode", "Skills", "AGENTS.md"],
+  },
 ]
 
 export function Skills() {
