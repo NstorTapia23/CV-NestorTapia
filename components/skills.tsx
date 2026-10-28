@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion"
 import { ScrollReveal } from "./scroll-reveal"
 import { useLang } from "@/lib/i18n/context"
 import { translations } from "@/lib/i18n/translations"
+import { LangText } from "./lang-text"
 
 const skillCategories = [
   {
@@ -40,12 +41,12 @@ export function Skills() {
   return (
     <section id="skills" className="py-20">
       <ScrollReveal>
-        <h2 className="text-3xl font-bold mb-10">{t.title[lang]}</h2>
+        <h2 className="text-3xl font-bold mb-10"><LangText text={t.title[lang]} /></h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((cat, i) => (
             <ScrollReveal key={cat.key} delay={i * 0.08}>
               <h3 className="text-lg font-semibold mb-3">
-                {t.categories[cat.key][lang]}
+                <LangText text={t.categories[cat.key][lang]} />
               </h3>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill, j) => (

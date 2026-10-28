@@ -4,6 +4,7 @@ import { useLang } from "@/lib/i18n/context";
 import { translations } from "@/lib/i18n/translations";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { LangText } from "./lang-text"
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -82,7 +83,7 @@ export function Hero() {
             variants={item}
             className="text-xl text-muted-foreground mb-6"
           >
-            {t.hero.title[lang]}
+            <LangText text={t.hero.title[lang]} />
           </motion.p>
           <motion.div
             variants={item}
@@ -95,7 +96,7 @@ export function Hero() {
               <Phone className="w-4 h-4" /> {t.contact.phone}
             </span>
             <span className="flex items-center gap-1.5">
-              <MapPin className="w-4 h-4" /> {t.contact.location[lang]}
+              <MapPin className="w-4 h-4" /> <LangText text={t.contact.location[lang]} />
             </span>
             <a
               href={`https://github.com/${t.contact.github}`}
@@ -115,13 +116,13 @@ export function Hero() {
             </a>
           </motion.div>
           <motion.h2 variants={item} className="text-2xl font-semibold mb-4">
-            {t.hero.aboutLabel[lang]}
+            <LangText text={t.hero.aboutLabel[lang]} />
           </motion.h2>
           <motion.p
             variants={item}
             className="text-muted-foreground leading-relaxed max-w-xl"
           >
-            {t.about.text[lang]}
+            <LangText text={t.about.text[lang]} />
           </motion.p>
         </div>
       </motion.div>

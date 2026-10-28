@@ -33,12 +33,34 @@ export function ThemeToggle() {
 
   const toggle = () => {
     const next: Theme = currentTheme() === "dark" ? "light" : "dark"
-    document.documentElement.dataset.theme = next
-    try {
-      localStorage.setItem("theme", next)
-    } catch {
-      // Sin almacenamiento disponible, el cambio dura solo esta visita
+    const apply = () => {
+      document.documentElement.dataset.theme = next
+      try {
+        localStorage.setItem("theme", next)
+      } catch {
+        // Sin almacenamiento disponible, el cambio dura solo esta visita
+      }
     }
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (!document.startViewTransition || reduce) {
+      apply()
+      return
+    }
+
+    // La nueva capa crece desde el centro de la pantalla hasta cubrir las esquinas
+    const transition = document.startViewTransition(apply)
+    transition.ready.then(() => {
+      const radius = Math.hypot(window.innerWidth / 2, window.innerHeight / 2)
+      document.documentElement.animate(
+        { clipPath: ["circle(0px at 50% 50%)", `circle(${radius}px at 50% 50%)`] },
+        {
+          duration: 800,
+          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      )
+    })
   }
 
   const label = theme === "dark" ? t.toLight[lang] : t.toDark[lang]

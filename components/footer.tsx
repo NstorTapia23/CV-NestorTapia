@@ -3,6 +3,7 @@
 import { useLang } from "@/lib/i18n/context"
 import { translations } from "@/lib/i18n/translations"
 import { GitHubIcon } from "./contact"
+import { LangText } from "@/components/lang-text"
 
 export function Footer() {
   const { lang } = useLang()
@@ -14,7 +15,7 @@ export function Footer() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-1">
           <p className="font-medium text-foreground">Nestor Luis Tapia Triana</p>
-          <p>{t.footer.rights[lang]} · © {year}</p>
+          <p><LangText text={t.footer.rights[lang]} /> · © {year}</p>
         </div>
         <a
           href={`https://github.com/${t.contact.github}`}

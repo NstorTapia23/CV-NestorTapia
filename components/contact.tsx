@@ -20,6 +20,7 @@ function LinkedInIcon({ className }: { className?: string }) {
 import { ScrollReveal } from "./scroll-reveal"
 import { useLang } from "@/lib/i18n/context"
 import { translations } from "@/lib/i18n/translations"
+import { LangText } from "./lang-text"
 
 export function Contact() {
   const { lang } = useLang()
@@ -28,8 +29,8 @@ export function Contact() {
   return (
     <section id="contact" className="py-20">
       <ScrollReveal>
-        <h2 className="text-3xl font-bold mb-4">{t.title[lang]}</h2>
-        <p className="text-lg text-muted-foreground mb-8">{t.cta[lang]}</p>
+        <h2 className="text-3xl font-bold mb-4"><LangText text={t.title[lang]} /></h2>
+        <p className="text-lg text-muted-foreground mb-8"><LangText text={t.cta[lang]} /></p>
         <div className="space-y-4">
           <a
             href={`mailto:${t.email}`}
@@ -47,7 +48,7 @@ export function Contact() {
           </a>
           <div className="flex items-center gap-3 text-muted-foreground">
             <MapPin className="w-5 h-5 text-primary" />
-            <span>{t.location[lang]}</span>
+            <span><LangText text={t.location[lang]} /></span>
           </div>
           <a
             href={`https://github.com/${t.github}`}
