@@ -88,39 +88,35 @@ body {
   }
 }
 
-/* Cambio de idioma: las letras salen en cascada y luego entran las del idioma nuevo */
+/* Cambio de idioma: las letras salen y luego entran en cascada, sin blur para no cargar el render */
 @keyframes lang-letter-out {
   from {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
   to {
     opacity: 0;
-    transform: translateY(-8px);
-    filter: blur(4px);
+    transform: translateY(-4px);
   }
 }
 
 @keyframes lang-letter-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
-    filter: blur(4px);
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
 .lang-letter-out {
-  animation: lang-letter-out 0.25s ease-in both;
+  animation: lang-letter-out 0.18s ease-in both;
 }
 
 .lang-letter-in {
-  animation: lang-letter-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: lang-letter-in 0.3s ease-out both;
 }
 
 /* Cambio de tema: solo la capa nueva se anima, con un círculo que crece desde el centro */
