@@ -9,6 +9,10 @@ export const translations = {
     languages: { es: "Idiomas", en: "Languages" },
     contact: { es: "Contacto", en: "Contact" },
   },
+  theme: {
+    toLight: { es: "Cambiar a modo claro", en: "Switch to light mode" },
+    toDark: { es: "Cambiar a modo oscuro", en: "Switch to dark mode" },
+  },
   hero: {
     title: {
       es: "Backend / Fullstack Junior Developer",
@@ -80,12 +84,15 @@ export const translations = {
       { language: { es: "Inglés", en: "English" }, level: { es: "Básico-Intermedio", en: "Basic-Intermediate" } },
     ],
   },
+  footer: {
+    rights: { es: "Hecho con Next.js y Tailwind CSS", en: "Built with Next.js and Tailwind CSS" },
+  },
   contact: {
     title: { es: "Contáctame", en: "Contact me" },
     email: "nestortapia287@gmail.com",
     phone: "+5355476330",
     location: { es: "Ciego de Ávila, Cuba", en: "Ciego de Ávila, Cuba" },
-    github: "NstorTapia",
+    github: "NstorTapia23",
     linkedin: "https://linkedin.com/in/néstor-tapia",
     cta: {
       es: "¿Crees que encajo en vuestro equipo?",

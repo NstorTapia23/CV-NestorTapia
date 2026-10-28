@@ -1,24 +1,25 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef, type ReactNode } from "react"
+import { motion, useReducedMotion } from "framer-motion"
+import type { ReactNode } from "react"
 
 interface Props {
   children: ReactNode
   className?: string
+  delay?: number
 }
 
-export function ScrollReveal({ children, className }: Props) {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+const ease = [0.22, 1, 0.36, 1] as const
+
+export function ScrollReveal({ children, className, delay = 0 }: Props) {
+  const reduce = useReducedMotion()
 
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={reduce ? false : { opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, ease, delay }}
       className={className}
     >
       {children}

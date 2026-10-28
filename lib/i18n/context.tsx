@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
 import type { Lang } from "./translations"
 
 interface I18nContextType {
@@ -18,6 +18,10 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }
     return "es"
   })
+
+  useEffect(() => {
+    document.documentElement.lang = lang
+  }, [lang])
 
   const handleSetLang = (l: Lang) => {
     setLang(l)

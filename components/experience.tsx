@@ -14,8 +14,9 @@ export function Experience() {
         <h2 className="text-3xl font-bold mb-10">{t.title[lang]}</h2>
         <div className="space-y-10">
           {t.items.map((item, i) => (
-            <div key={i} className="relative pl-8 border-l-2 border-border">
-              <div className="absolute left-0 top-0 w-4 h-4 -translate-x-[9px] rounded-full bg-primary" />
+            <ScrollReveal key={i} delay={i * 0.1}>
+            <div className="group relative pl-8 border-l-2 border-border transition-transform duration-300 hover:translate-x-1">
+              <div className="absolute left-0 top-0 w-4 h-4 -translate-x-[9px] rounded-full bg-primary transition-transform duration-300 group-hover:scale-125" />
               <div className="space-y-2">
                 <div className="flex flex-wrap items-baseline gap-2">
                   <h3 className="text-xl font-semibold">{item.role[lang]}</h3>
@@ -27,7 +28,7 @@ export function Experience() {
                   {item.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 text-xs rounded-full bg-secondary text-secondary-foreground border"
+                      className="px-2 py-0.5 text-xs rounded-full bg-secondary text-secondary-foreground border transition-colors hover:border-primary/40"
                     >
                       {tech}
                     </span>
@@ -35,6 +36,7 @@ export function Experience() {
                 </div>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
       </ScrollReveal>

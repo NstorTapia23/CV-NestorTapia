@@ -14,8 +14,8 @@ export function Education() {
     <section id="education" className="py-20">
       <ScrollReveal>
         <h2 className="text-3xl font-bold mb-10">{t.title[lang]}</h2>
-        <div className="flex gap-4 p-6 rounded-xl border bg-card">
-          <div className="shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+        <div className="group flex gap-4 p-6 rounded-xl border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/40">
+          <div className="shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
             <GraduationCap className="w-6 h-6 text-primary" />
           </div>
           <div className="space-y-2">
